@@ -57,7 +57,7 @@ Google Web AI is built into Chrome 139+ and requires no additional setup:
 2. Ensure "Google Web AI (built into Chrome)" is selected
 3. Navigate to the webpage you want to analyze
 4. Click "🔍 Analyze" in the extension window
-5. Wait for the analysis to complete (typically 10-30 seconds)
+5. Wait for the analysis to complete (typically 1.5-2 minutes)
 6. Review the results in the extension window
 
 **Recommended Models**: Google Web AI uses Gemini Nano, which supports both text and image inputs. This is the default and recommended option as it requires no external setup.

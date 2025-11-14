@@ -282,12 +282,12 @@ analyzeButton.addEventListener('click', () => {
             }
             
             analyzeButton.textContent = '⏳ Analyzing...';
-            outputElement.textContent = 'Sending request to Ollama...\nThis may take 1-2 minutes.';
+            outputElement.textContent = 'Sending request to Ollama...\nThis may take 1.5-2 minutes.';
         } else {
             // Google Web AI
             config.outputLanguage = 'en';
             analyzeButton.textContent = '⏳ Analyzing...';
-            outputElement.textContent = 'Sending request to Google Web AI...\nThis may take 20-30 seconds.';
+            outputElement.textContent = 'Sending request to Google Web AI...\nThis may take 1.5-2 minutes.';
         }
         
         // Send screenshot to API for full accessibility analysis
