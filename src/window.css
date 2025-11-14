@@ -1,0 +1,350 @@
+/* window.css - Styles for the extension's separate window UI */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    padding: 20px;
+    min-width: 500px;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: #1a1a1a;
+}
+
+h2 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #666;
+    margin-bottom: 24px;
+}
+
+h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: #1a1a1a;
+}
+
+#output {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+}
+
+.screenshot-section {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.api-provider-section {
+    margin-bottom: 20px;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.radio-label:hover {
+    border-color: #3730a3;
+    background: #f8f7ff;
+}
+
+.radio-label input[type="radio"] {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.radio-label input[type="radio"]:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.radio-label:has(input[type="radio"]:disabled) {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.radio-label input[type="radio"]:checked + span {
+    font-weight: 600;
+    color: #3730a3;
+}
+
+.api-fields {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.api-fields input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.api-fields input:disabled {
+    background: #f5f5f5;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.api-fields input:focus {
+    outline: none;
+    border-color: #3730a3;
+    box-shadow: 0 0 0 3px rgba(55, 48, 163, 0.1);
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+    margin-top: 12px;
+}
+
+.btn-primary {
+    background: #3730a3;
+    color: #fff;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: #2d2670;
+}
+
+.btn-primary:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.btn-secondary {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background: #e0e0e0;
+}
+
+.btn-small {
+    padding: 6px 12px;
+    font-size: 12px;
+    width: auto;
+    margin: 0 4px;
+}
+
+.results-section {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.results-header h3 {
+    margin: 0;
+}
+
+.results-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.results-content {
+    max-height: 600px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 8px;
+}
+
+.results-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.results-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.results-content::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.results-content::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.summary-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.stat-item {
+    background: #f8f8f8;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 4px;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.stat-value.critical {
+    color: #dc2626;
+}
+
+.stat-value.serious {
+    color: #ea580c;
+}
+
+.stat-value.moderate {
+    color: #f59e0b;
+}
+
+.stat-value.minor {
+    color: #3b82f6;
+}
+
+.recommendation-item {
+    border-left: 4px solid #ddd;
+    padding: 16px;
+    margin-bottom: 16px;
+    background: #fafafa;
+    border-radius: 4px;
+}
+
+.recommendation-item.priority-critical {
+    border-left-color: #dc2626;
+    background: #fef2f2;
+}
+
+.recommendation-item.priority-high {
+    border-left-color: #ea580c;
+    background: #fff7ed;
+}
+
+.recommendation-item.priority-medium {
+    border-left-color: #f59e0b;
+    background: #fffbeb;
+}
+
+.recommendation-item.priority-low {
+    border-left-color: #3b82f6;
+    background: #eff6ff;
+}
+
+.recommendation-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #1a1a1a;
+}
+
+.recommendation-description {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+.recommendation-fix {
+    font-size: 14px;
+    color: #333;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.recommendation-fix strong {
+    color: #3730a3;
+}
+
+.recommendation-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.wcag-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #555;
+}
+
+code {
+    background: #f0f0f0;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+}
+

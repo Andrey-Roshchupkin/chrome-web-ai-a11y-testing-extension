@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility AI Analyzer</title>
+
+    <!-- Load styles -->
+    <link rel="stylesheet" href="window.css" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>Accessibility AI</h1>
+        <h2>AI-powered Web Accessibility Analysis</h2>
+        <pre id="output"></pre>
+        
+        <div class="screenshot-section">
+            <div class="api-provider-section">
+                <h3>Select API Provider</h3>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="apiProvider" value="google-web-ai" checked>
+                        <span>Google Web AI (built into Chrome)</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="apiProvider" value="ollama">
+                        <span>Ollama (local server)</span>
+                    </label>
+                </div>
+            </div>
+
+            <div id="googleWebAIFields" class="api-fields">
+                <h3>Google Web AI Settings</h3>
+                <p style="font-size: 12px; color: #666; margin-top: 8px;">
+                    💡 Requires Chrome 139+ with flags enabled:<br>
+                    <code>chrome://flags/#prompt-api-for-gemini-nano</code><br>
+                    <code>chrome://flags/#prompt-api-for-gemini-nano-multimodal-input</code>
+                </p>
+            </div>
+
+            <div id="ollamaFields" class="api-fields" style="display: none;">
+                <h3>Ollama Settings</h3>
+                <input type="text" id="apiUrl" placeholder="API URL (e.g., http://localhost:11434)" value="http://localhost:11434">
+                <input type="text" id="modelName" placeholder="Model name (e.g., gemma3:12b)" value="gemma3:12b">
+                <input type="text" id="apiKey" placeholder="API key (optional)" style="display: none;">
+            </div>
+
+            <button id="analyzeScreenshot" class="btn btn-primary" disabled>🔍 Analyze</button>
+        </div>
+
+        <div id="resultsSection" class="results-section" style="display: none;">
+            <div class="results-header">
+                <h3>Accessibility Analysis Results</h3>
+                <div class="results-actions">
+                    <button id="copyResults" class="btn btn-secondary btn-small">📋 Copy</button>
+                    <button id="saveResults" class="btn btn-secondary btn-small">💾 Save</button>
+                    <button id="copyRawJson" class="btn btn-secondary btn-small">📄 Copy Raw JSON</button>
+                </div>
+            </div>
+            <div id="resultsContent" class="results-content">
+                <!-- Results will be displayed here -->
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
